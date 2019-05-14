@@ -44,15 +44,17 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute("src", siteContent["nav"]["img-src"]);
+logo.src = siteContent["nav"]["img-src"];
 
 /////////////navItems//////////////
 let navItems = document.querySelectorAll("nav a");
 navItems.forEach((el, i) => {
   el.textContent = `${siteContent.nav[`nav-item-${[i + 1]}`]}`;
+  el.style.color = "green";
 });
 ////////////////////H1 Text////////////////////
 let h1text = document.querySelector(".cta .cta-text h1");
+siteContent.cta.h1 = siteContent.cta.h1.replace(/\s/g, "\n");
 h1text.innerText = siteContent.cta.h1;
 
 /////////////Button////////////////////
@@ -83,7 +85,26 @@ paras[1].innerText = siteContent["main-content"]["about-content"];
 paras[2].innerText = siteContent["main-content"]["services-content"];
 paras[3].innerText = siteContent["main-content"]["product-content"];
 paras[4].innerText = siteContent["main-content"]["vision-content"];
+//////////////////Contact//////////////////////////
+siteContent.contact.address = siteContent.contact.address.replace(
+  /t S/,
+  "t\n S"
+);
 paras[5].innerText = siteContent.contact.address;
 paras[6].innerText = siteContent.contact.phone;
 paras[7].innerText = siteContent.contact.email;
+/////////////////////////////Footer/////////////////
 paras[8].innerText = siteContent.footer.copyright;
+
+////////////////New Elements///////////////////
+let navList = document.querySelector("nav");
+let newEl1text = document.createTextNode("Sign In");
+let newEl1 = document.createElement("a");
+newEl1.appendChild(newEl1text);
+let newEl2text = document.createTextNode("Find Friends");
+let newEl2 = document.createElement("a");
+newEl2.appendChild(newEl2text);
+navList.prepend(newEl1);
+navList.appendChild(newEl2);
+navList.style.color = "green";
+navItems[0].createAttribute("href='#'");

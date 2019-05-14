@@ -46,28 +46,44 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
-let i = 1;
+/////////////navItems//////////////
 let navItems = document.querySelectorAll("nav a");
-navItems.forEach(el => {
-  el.textContent = `${siteContent.nav[`nav-item-${[i]}`]}`;
-  i += 1;
+navItems.forEach((el, i) => {
+  el.textContent = `${siteContent.nav[`nav-item-${[i + 1]}`]}`;
 });
-
+////////////////////H1 Text////////////////////
 let h1text = document.querySelector(".cta .cta-text h1");
 h1text.innerText = siteContent.cta.h1;
-h1text.style.width = "25%";
 
+/////////////Button////////////////////
 let btn = document.querySelector("button");
 btn.innerText = siteContent.cta.button;
 
+///////////CTA Image////////////////////
 let ctaImg = document.querySelector("#cta-img");
 ctaImg.src = `${siteContent.cta["img-src"]}`;
 
+////////////////H4 Titles///////////////
 let h4Titles = document.querySelectorAll("h4");
 h4Titles[0].innerText = siteContent["main-content"]["features-h4"];
 h4Titles[1].innerText = siteContent["main-content"]["about-h4"];
 h4Titles[2].innerText = siteContent["main-content"]["services-h4"];
 h4Titles[3].innerText = siteContent["main-content"]["product-h4"];
 h4Titles[4].innerText = siteContent["main-content"]["vision-h4"];
+h4Titles[5].innerText = siteContent.contact["contact-h4"];
 
+/////////////////////Middle Image/////////////////////
+let midImg = document.querySelector("#middle-img");
+midImg.src = `${siteContent["main-content"]["middle-img-src"]}`;
+
+////////////////////Paragraphs/////////////////////
 let paras = document.querySelectorAll("p");
+paras[0].innerText = siteContent["main-content"]["features-content"];
+paras[1].innerText = siteContent["main-content"]["about-content"];
+paras[2].innerText = siteContent["main-content"]["services-content"];
+paras[3].innerText = siteContent["main-content"]["product-content"];
+paras[4].innerText = siteContent["main-content"]["vision-content"];
+paras[5].innerText = siteContent.contact.address;
+paras[6].innerText = siteContent.contact.phone;
+paras[7].innerText = siteContent.contact.email;
+paras[8].innerText = siteContent.footer.copyright;
